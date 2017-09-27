@@ -1,5 +1,4 @@
-BSD 3-Clause License
-
+/*
 Copyright (c) 2017, LibMars Developers.
 All rights reserved.
 
@@ -27,3 +26,22 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+#ifndef MARS_H
+#define MARS_H 1
+
+#include "mars_header.h"
+#include "Infra/log.h"
+#include "Infra/StackVector.h"
+#include "Infra/Debugger.h"
+#include "Infra/Slice.h"
+#include "Infra/RandomGenerator.h"
+#include "Infra/String.h"
+#include "Infra/Time.h"
+#include "Infra/Date.h"
+#include "Infra/TimeCurve.h"
+#include "Infra/DateCurve.h"
+#include "Infra/vector.h"
+#include "Array/Array.h"
+
+#endif

@@ -1,5 +1,4 @@
-BSD 3-Clause License
-
+/*
 Copyright (c) 2017, LibMars Developers.
 All rights reserved.
 
@@ -27,3 +26,80 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+#ifndef MARS_DATECURVE_H
+#define MARS_DATECURVE_H 1
+
+namespace mars{
+
+class DateCurve
+{
+public:
+    DateCurve()
+    {}
+
+    long size() const
+    {
+        return m_data.size();
+    }
+
+    std::vector<mars::Date> keys() const
+    {
+        std::vector<mars::Date> ks( size() );
+
+        long i = 0;
+        for(auto it = m_data.begin(); it != m_data.end(); it ++)
+        {
+            ks[i] = it->first;
+            i ++;
+        }
+        std::sort(ks.begin(), ks.end());
+        return ks;
+    }
+
+    std::vector<double> values() const
+    {
+        std::vector<mars::Date> ks = keys();
+        std::vector<double> vs( size() );
+        for(long i = 0; i < ks.size(); i ++)
+        {
+            vs[i] = m_data.at( ks[i] );
+        }
+
+        return vs;
+    }
+
+    double& operator [](const mars::Date& k)
+    {
+        return( m_data[k] );
+    }
+
+    const double& operator [](const mars::Date& k) const
+    {
+        return( m_data.at(k) );
+    }
+
+    double& at (const mars::Date& k)
+    {
+        return( m_data[k] );
+    }
+
+    const double& at (const mars::Date& k) const
+    {
+        return( m_data.at(k) );
+    }
+
+    void print()
+    {
+        std::vector<mars::Date> ks = keys();
+        for(const auto& k : ks)
+            fprintf(stderr, "%s:%f\n", k.to_string().c_str(), m_data[k]);
+    }
+
+private:
+    std::map<mars::Date, double> m_data;
+};
+
+}
+
+#endif
