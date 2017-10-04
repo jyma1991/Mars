@@ -7,4 +7,4 @@ Array testing: g++ -std=c++14 test_array.cc -o test_array.x -lpthread -lunwind -
 
 Test run results are in test_array.txt
 
-Benchmarked Mars for 3 dimensional array of double precision. Most times the speed is the same as simple C array declared on stack. Sometimes, Mars is a even faster.
+Benchmarked Mars for 3 dimensional array of double precision. Most times the speed is the same as simple C array declared on stack. Sometimes, Mars is even faster.
